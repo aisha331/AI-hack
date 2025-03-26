@@ -2,72 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AIXAPL — Axiom Hackathon Log</title>
+  <title>3 Days of Code, Chaos & Claude!</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #0e0e0e;
-      color: #f2f2f2;
+      color: #e6e6e6;
       padding: 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       line-height: 1.8;
     }
-    h1, h2, h3 {
-      color: #ffdd57;
-      border-bottom: 1px solid #333;
+
+    h1 {
+      color: #7ec4ff;
+      font-size: 2.8rem;
+      border-bottom: 2px solid #2f2f2f;
       padding-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
     }
+
+    h2, h3 {
+      color: #91ffcb;
+      margin-top: 2rem;
+    }
+
     .team span {
       display: inline-block;
-      margin: 0.5rem;
-      font-weight: bold;
+      margin: 0.4rem;
+      padding: 0.4rem 0.8rem;
       background: #1e1e1e;
-      padding: 0.3rem 0.7rem;
       border-radius: 6px;
-      color: #cfcfcf;
+      color: #f0f0f0;
+      font-weight: bold;
     }
+
+    blockquote {
+      background: #1f1f1f;
+      padding: 1rem;
+      border-left: 4px solid #91ffcb;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #d0d0d0;
+    }
+
+    .day-section {
+      border: 1px solid #222;
+      border-radius: 10px;
+      background: #121212;
+      padding: 1.5rem;
+      margin-top: 2.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .day-section.collapsible .day-content {
+      display: none;
+    }
+
+    .toggle-button {
+      background: none;
+      border: none;
+      color: #91ffcb;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     .feature-card {
       background: #1a1a1a;
       padding: 1rem;
-      margin: 0.5rem 0;
-      border-left: 5px solid #915EFF;
+      margin: 0.8rem 0;
+      border-left: 5px solid #7ec4ff;
       border-radius: 6px;
     }
+
     iframe {
       width: 100%;
       height: 400px;
       margin-top: 1rem;
       border: none;
+      border-radius: 8px;
     }
-    blockquote {
-      background: #222;
-      padding: 1rem;
-      border-left: 5px solid #ffdd57;
-      margin: 1rem 0;
-      font-style: italic;
-      color: #dcdcdc;
-    }
-    .day-section {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 2px dashed #333;
-    }
-    ul {
-      margin-left: 1.5rem;
-    }
+
     .rate {
-      background: #191919;
-      padding: 0.5rem;
+      background: #1f1f1f;
+      padding: 0.6rem;
       border-radius: 4px;
       margin-bottom: 1rem;
+      font-family: monospace;
+    }
+
+    .dropzone {
+      margin-top: 2rem;
+      padding: 2rem;
+      border: 2px dashed #444;
+      text-align: center;
+      background: #161616;
+      border-radius: 12px;
+      color: #999;
+      font-style: italic;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+      border-top: 1px solid #222;
+      padding-top: 1rem;
+    }
+
+    .quote-banner {
+      text-align: center;
+      font-style: italic;
+      margin: 2rem 0;
+      font-size: 1.3rem;
+      color: #888;
     }
   </style>
+
+  <script>
+    function toggleDay(id) {
+      const section = document.getElementById(id);
+      const content = section.querySelector('.day-content');
+      content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
 </head>
 <body>
 
-  <h1>🧠 Axiom Hackathon: Meet <span style="color:#915EFF;">AIXAPL</span></h1>
-  <p>4 days. 4 devs. 1 AI-powered APL assistant that went on a journey.</p>
+  <h1>🧠 3 Days of Code, Chaos & Claude!</h1>
+  <p>What started as a sticky-note mess became a whispering AI with dreams of APL fluency.</p>
 
   <div class="team">
     <span>Ollie 🧠</span>
@@ -76,145 +144,152 @@
     <span>Aisha 🔥</span>
   </div>
 
-  <div class="day-section">
-    <h2>📅 Day 1 — “Brainstorm Blitz”</h2>
+  <div class="quote-banner">“Claude, complete me.”</div>
 
+  <!-- 🌟 Day 0 – Discovery Mode -->
+  <div class="day-section" id="day-0">
+    <h2>🪄 Day 0 — Brainstorm & Discovery</h2>
     <div class="feature-card">
-      <h3>💡 Things We Explored</h3>
+      <h3>🗣️ What We Did</h3>
       <ul>
-        <li>Using Claude 3.7 Sonnet via Bedrock</li>
-        <li>Lang → APL translation prompt engineering</li>
-        <li>Auto-naming logic vs hardcoded fallbacks</li>
+        <li>Met at basecamp (aka video call)</li>
+        <li>Dumped 20 ideas onto a FigJam board</li>
+        <li>Explored Claude, Langfuse, AWS Bedrock</li>
+        <li>Argued about what “smart completion” means 😅</li>
       </ul>
     </div>
 
     <div class="feature-card">
-      <h3>🐛 What Didn't Work</h3>
+      <h3>🔧 Tools Discovered</h3>
       <ul>
-        <li>LangChain too heavy for our use</li>
-        <li>Claude misunderstood complex queries</li>
+        <li>Claude 3.7 via Bedrock</li>
+        <li>Langfuse for telemetry</li>
+        <li>Monaco editor vs CodeMirror</li>
       </ul>
     </div>
 
-    <div class="feature-card">
-      <h3>🐣 Cute Rate (1–5 AI joy scale)</h3>
-      <div class="rate">Ollie: 4/5 | Gabriel: 3.5/5 | Mark: 5/5 | Aisha: 3/5</div>
+    <div class="dropzone">
+      📸 Drop your team whiteboard, FigJam or meme dump here!  
+      <br>(Screenshot it and place it here as an image)
     </div>
-
-    <div class="feature-card">
-      <h3>✅ What Worked</h3>
-      <ul>
-        <li>Brainstorm sessions on sticky boards</li>
-        <li>Langfuse tracking setup ✅</li>
-      </ul>
-    </div>
-
-    <h3>🎥 Loom Day 1 Recap</h3>
-    <iframe src="https://www.youtube.com/embed/LOOM_VIDEO_1"></iframe>
   </div>
 
-  <div class="day-section">
-    <h2>📅 Day 2 — “Claude vs Syntax”</h2>
+  <!-- 🔥 Hackathon Day 1 -->
+  <div class="day-section collapsible" id="day-1">
+    <h2>📅 Day 1 — "Claude, Please Understand Me."</h2>
+    <button class="toggle-button" onclick="toggleDay('day-1')">🧩 Show/Hide Day 1 Details</button>
+    <div class="day-content">
+      <div class="feature-card">
+        <h3>💡 What We Learned</h3>
+        <ul>
+          <li>Prompt context is EVERYTHING</li>
+          <li>Claude needs structured schema input</li>
+        </ul>
+      </div>
 
-    <div class="feature-card">
-      <h3>💡 Lessons Learned</h3>
-      <ul>
-        <li>Bracket notation is fragile 😵</li>
-        <li>Schema-aware completions need serious massaging</li>
-      </ul>
+      <div class="feature-card">
+        <h3>✅ What Worked</h3>
+        <ul>
+          <li>Prompt chaining logic</li>
+          <li>Langfuse token tracking is clean</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3>🐛 Not Working Yet</h3>
+        <ul>
+          <li>Claude still closes brackets wrong</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3>🐣 Cute Rate</h3>
+        <div class="rate">Ollie: 3.5/5 | Gabriel: 3/5 | Mark: 4/5 | Aisha: 2.5/5</div>
+      </div>
+
+      <h3>🎥 Loom Video</h3>
+      <iframe src="https://www.youtube.com/embed/YOUR_LOOM_DAY1"></iframe>
     </div>
-
-    <div class="feature-card">
-      <h3>🐛 Bugs & Gotchas</h3>
-      <ul>
-        <li>Claude tried to guess time filters — and failed</li>
-        <li>Editor context wasn’t fully injected</li>
-      </ul>
-    </div>
-
-    <div class="feature-card">
-      <h3>🐣 Cute Rate</h3>
-      <div class="rate">Ollie: 3/5 | Gabriel: 4/5 | Mark: 4/5 | Aisha: 4.5/5</div>
-    </div>
-
-    <div class="feature-card">
-      <h3>✅ Wins</h3>
-      <ul>
-        <li>“Quick Fix” prompt baseline working</li>
-        <li>Monaco editor integrated</li>
-      </ul>
-    </div>
-
-    <h3>🎥 Loom Day 2 Recap</h3>
-    <iframe src="https://www.youtube.com/embed/LOOM_VIDEO_2"></iframe>
   </div>
 
-  <div class="day-section">
-    <h2>📅 Day 3 — “Smart Completions Are... Smart?”</h2>
+  <!-- ⚡ Day 2 -->
+  <div class="day-section collapsible" id="day-2">
+    <h2>📅 Day 2 — “QueryCraft & Chaos”</h2>
+    <button class="toggle-button" onclick="toggleDay('day-2')">🧩 Show/Hide Day 2 Details</button>
+    <div class="day-content">
+      <div class="feature-card">
+        <h3>💡 What We Learned</h3>
+        <ul>
+          <li>Claude improves when told *not* to guess</li>
+          <li>Telemetry UI is gold for debugging</li>
+        </ul>
+      </div>
 
-    <div class="feature-card">
-      <h3>💡 Takeaways</h3>
-      <ul>
-        <li>Prompt chaining helps with context accuracy</li>
-        <li>Langfuse logs = lifesaver</li>
-      </ul>
+      <div class="feature-card">
+        <h3>✅ What Worked</h3>
+        <ul>
+          <li>Auto-naming generation is working</li>
+          <li>Editor token context makes completions better</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3>🐛 Not Working Yet</h3>
+        <ul>
+          <li>Missing syntax highlighting in suggestions</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3>🐣 Cute Rate</h3>
+        <div class="rate">Ollie: 4/5 | Gabriel: 4.5/5 | Mark: 4/5 | Aisha: 4.5/5</div>
+      </div>
+
+      <h3>🎥 Loom Video</h3>
+      <iframe src="https://www.youtube.com/embed/YOUR_LOOM_DAY2"></iframe>
     </div>
-
-    <div class="feature-card">
-      <h3>🐛 Still Not Great</h3>
-      <ul>
-        <li>Syntax highlight loss in feedback view</li>
-        <li>Claude sometimes auto-closed the wrong brackets</li>
-      </ul>
-    </div>
-
-    <div class="feature-card">
-      <h3>🐣 Cute Rate</h3>
-      <div class="rate">Ollie: 4.5/5 | Gabriel: 4/5 | Mark: 4.5/5 | Aisha: 5/5</div>
-    </div>
-
-    <div class="feature-card">
-      <h3>✅ Successes</h3>
-      <ul>
-        <li>Telemetry tracking full loop</li>
-        <li>Auto-naming suggestions logged</li>
-      </ul>
-    </div>
-
-    <h3>🎥 Loom Day 3 Recap</h3>
-    <iframe src="https://www.youtube.com/embed/LOOM_VIDEO_3"></iframe>
   </div>
 
-  <div class="day-section">
-    <h2>📅 Day 4 — “Demo & Deploy”</h2>
+  <!-- 🎯 Day 3 -->
+  <div class="day-section collapsible" id="day-3">
+    <h2>📅 Day 3 — “Demo Day & Dramatic Debugging”</h2>
+    <button class="toggle-button" onclick="toggleDay('day-3')">🧩 Show/Hide Day 3 Details</button>
+    <div class="day-content">
+      <div class="feature-card">
+        <h3>💡 What We Learned</h3>
+        <ul>
+          <li>Minimal prompts = better Claude results</li>
+          <li>Everyone loves a feedback button</li>
+        </ul>
+      </div>
 
-    <div class="feature-card">
-      <h3>💡 Wrap-Up Learnings</h3>
-      <ul>
-        <li>Prompt templates make or break UX</li>
-        <li>Clear error messages = happier users</li>
-      </ul>
+      <div class="feature-card">
+        <h3>✅ What Worked</h3>
+        <ul>
+          <li>Full prompt loop + Langfuse logging</li>
+          <li>Feedback UI + query reruns</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3>🐛 Not Working Yet</h3>
+        <ul>
+          <li>Function calling still not connected</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3>🐣 Cute Rate</h3>
+        <div class="rate">Ollie: 5/5 | Gabriel: 5/5 | Mark: 5/5 | Aisha: 5/5</div>
+      </div>
+
+      <h3>🎥 Final Demo</h3>
+      <iframe src="https://www.youtube.com/embed/YOUR_LOOM_DAY3"></iframe>
     </div>
-
-    <div class="feature-card">
-      <h3>✅ Final Touches</h3>
-      <ul>
-        <li>Feedback button wired</li>
-        <li>“It actually worked.”</li>
-      </ul>
-    </div>
-
-    <div class="feature-card">
-      <h3>🐣 Final Cute Rate</h3>
-      <div class="rate">Ollie: 5/5 | Gabriel: 5/5 | Mark: 5/5 | Aisha: 5/5</div>
-    </div>
-
-    <h3>🎥 Final Demo</h3>
-    <iframe src="https://www.youtube.com/embed/LOOM_FINAL_DEMO"></iframe>
   </div>
 
-  <footer style="margin-top: 4rem;">
-    <p>🚀 Built by Team Asya for the Axiom Hackathon — powered by Claude, coffee, chaos & curiosity.</p>
+  <footer>
+    <p>🚀 Built by Team Asya for the Axiom Hackathon — powered by Claude, curiosity & chaos ☕</p>
   </footer>
 
 </body>
