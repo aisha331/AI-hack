@@ -2,72 +2,219 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AXL — AI Hackathon Log</title>
+  <title>AIXAPL — Axiom Hackathon Log</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      color: #333;
+      background: #0e0e0e;
+      color: #f2f2f2;
       padding: 2rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
-      line-height: 1.6;
+      line-height: 1.8;
     }
-    h1, h2 { color: #444; }
-    .team span { display: inline-block; margin: 0.5rem; font-weight: bold; }
-    .feature-card { background: #eee; padding: 1rem; margin: 0.5rem 0; border-radius: 8px; }
-    iframe { width: 100%; height: 400px; margin-top: 1rem; border: none; }
-    blockquote { background: #fff8d3; padding: 1rem; border-left: 5px solid #f4c430; }
+    h1, h2, h3 {
+      color: #ffdd57;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.3rem;
+    }
+    .team span {
+      display: inline-block;
+      margin: 0.5rem;
+      font-weight: bold;
+      background: #1e1e1e;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      color: #cfcfcf;
+    }
+    .feature-card {
+      background: #1a1a1a;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-left: 5px solid #915EFF;
+      border-radius: 6px;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      margin-top: 1rem;
+      border: none;
+    }
+    blockquote {
+      background: #222;
+      padding: 1rem;
+      border-left: 5px solid #ffdd57;
+      margin: 1rem 0;
+      font-style: italic;
+      color: #dcdcdc;
+    }
+    .day-section {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 2px dashed #333;
+    }
+    ul {
+      margin-left: 1.5rem;
+    }
+    .rate {
+      background: #191919;
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
 
-  <h1>🧠 ASYA Hackathon – Meet <span style="color:#915EFF;">AXL</span></h1>
-  <p>3 days. 4 minds. 1 AI that speaks fluent APL.</p>
+  <h1>🧠 Axiom Hackathon: Meet <span style="color:#915EFF;">AIXAPL</span></h1>
+  <p>4 days. 4 devs. 1 AI-powered APL assistant that went on a journey.</p>
 
   <div class="team">
-    <span>Ahmed 🧠</span>
-    <span>Suha ⚡</span>
-    <span>Moh 🎯</span>
-    <span>Salah 🔥</span>
+    <span>Ollie 🧠</span>
+    <span>Gabriel ⚡</span>
+    <span>Mark 🎯</span>
+    <span>Aisha 🔥</span>
   </div>
 
-  <h2>💡 The Idea Storm</h2>
-  <ul>
-    <li>Natural Lang → APL</li>
-    <li>Smart Code Completion</li>
-    <li>Auto-naming</li>
-    <li>Quick Fix w/ Claude</li>
-    <li>Telemetry with Langfuse</li>
-  </ul>
-  <blockquote>“Can we make APL speak human?” — Suha</blockquote>
+  <div class="day-section">
+    <h2>📅 Day 1 — “Brainstorm Blitz”</h2>
 
-  <h2>⚙️ How It Works</h2>
-  <img src="diagram.png" alt="AI Flow Diagram" style="width:100%; border-radius:8px;"/>
+    <div class="feature-card">
+      <h3>💡 Things We Explored</h3>
+      <ul>
+        <li>Using Claude 3.7 Sonnet via Bedrock</li>
+        <li>Lang → APL translation prompt engineering</li>
+        <li>Auto-naming logic vs hardcoded fallbacks</li>
+      </ul>
+    </div>
 
-  <h2>🧪 Features</h2>
-  <div class="feature-card">✅ Translate NL → APL</div>
-  <div class="feature-card">✅ Smart Completions</div>
-  <div class="feature-card">✅ Auto-naming Queries</div>
-  <div class="feature-card">✅ Telemetry via Langfuse</div>
+    <div class="feature-card">
+      <h3>🐛 What Didn't Work</h3>
+      <ul>
+        <li>LangChain too heavy for our use</li>
+        <li>Claude misunderstood complex queries</li>
+      </ul>
+    </div>
 
-  <h2>🎥 Demo</h2>
-  <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE"></iframe>
+    <div class="feature-card">
+      <h3>🐣 Cute Rate (1–5 AI joy scale)</h3>
+      <div class="rate">Ollie: 4/5 | Gabriel: 3.5/5 | Mark: 5/5 | Aisha: 3/5</div>
+    </div>
 
-  <h2>😂 Team Quotes</h2>
-  <blockquote>“Claude hallucinated a full schema.” — Salah</blockquote>
-  <blockquote>“I fixed it by deleting it.” — Moh</blockquote>
+    <div class="feature-card">
+      <h3>✅ What Worked</h3>
+      <ul>
+        <li>Brainstorm sessions on sticky boards</li>
+        <li>Langfuse tracking setup ✅</li>
+      </ul>
+    </div>
 
-  <h2>🚀 What’s Next?</h2>
-  <ul>
-    <li>Feedback-driven prompt tuning</li>
-    <li>Claude function calling</li>
-    <li>AXL plugin for Axiom?</li>
-    <li>Give AXL a cute mascot</li>
-  </ul>
+    <h3>🎥 Loom Day 1 Recap</h3>
+    <iframe src="https://www.youtube.com/embed/LOOM_VIDEO_1"></iframe>
+  </div>
 
-  <footer style="margin-top: 3rem;">
-    <p>Built by Team Asya with Claude, coffee, and chaos ☕</p>
+  <div class="day-section">
+    <h2>📅 Day 2 — “Claude vs Syntax”</h2>
+
+    <div class="feature-card">
+      <h3>💡 Lessons Learned</h3>
+      <ul>
+        <li>Bracket notation is fragile 😵</li>
+        <li>Schema-aware completions need serious massaging</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <h3>🐛 Bugs & Gotchas</h3>
+      <ul>
+        <li>Claude tried to guess time filters — and failed</li>
+        <li>Editor context wasn’t fully injected</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <h3>🐣 Cute Rate</h3>
+      <div class="rate">Ollie: 3/5 | Gabriel: 4/5 | Mark: 4/5 | Aisha: 4.5/5</div>
+    </div>
+
+    <div class="feature-card">
+      <h3>✅ Wins</h3>
+      <ul>
+        <li>“Quick Fix” prompt baseline working</li>
+        <li>Monaco editor integrated</li>
+      </ul>
+    </div>
+
+    <h3>🎥 Loom Day 2 Recap</h3>
+    <iframe src="https://www.youtube.com/embed/LOOM_VIDEO_2"></iframe>
+  </div>
+
+  <div class="day-section">
+    <h2>📅 Day 3 — “Smart Completions Are... Smart?”</h2>
+
+    <div class="feature-card">
+      <h3>💡 Takeaways</h3>
+      <ul>
+        <li>Prompt chaining helps with context accuracy</li>
+        <li>Langfuse logs = lifesaver</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <h3>🐛 Still Not Great</h3>
+      <ul>
+        <li>Syntax highlight loss in feedback view</li>
+        <li>Claude sometimes auto-closed the wrong brackets</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <h3>🐣 Cute Rate</h3>
+      <div class="rate">Ollie: 4.5/5 | Gabriel: 4/5 | Mark: 4.5/5 | Aisha: 5/5</div>
+    </div>
+
+    <div class="feature-card">
+      <h3>✅ Successes</h3>
+      <ul>
+        <li>Telemetry tracking full loop</li>
+        <li>Auto-naming suggestions logged</li>
+      </ul>
+    </div>
+
+    <h3>🎥 Loom Day 3 Recap</h3>
+    <iframe src="https://www.youtube.com/embed/LOOM_VIDEO_3"></iframe>
+  </div>
+
+  <div class="day-section">
+    <h2>📅 Day 4 — “Demo & Deploy”</h2>
+
+    <div class="feature-card">
+      <h3>💡 Wrap-Up Learnings</h3>
+      <ul>
+        <li>Prompt templates make or break UX</li>
+        <li>Clear error messages = happier users</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <h3>✅ Final Touches</h3>
+      <ul>
+        <li>Feedback button wired</li>
+        <li>“It actually worked.”</li>
+      </ul>
+    </div>
+
+    <div class="feature-card">
+      <h3>🐣 Final Cute Rate</h3>
+      <div class="rate">Ollie: 5/5 | Gabriel: 5/5 | Mark: 5/5 | Aisha: 5/5</div>
+    </div>
+
+    <h3>🎥 Final Demo</h3>
+    <iframe src="https://www.youtube.com/embed/LOOM_FINAL_DEMO"></iframe>
+  </div>
+
+  <footer style="margin-top: 4rem;">
+    <p>🚀 Built by Team Asya for the Axiom Hackathon — powered by Claude, coffee, chaos & curiosity.</p>
   </footer>
 
 </body>
