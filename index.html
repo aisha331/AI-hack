@@ -15,7 +15,7 @@
     }
 
     h1 {
-      color: #7ec4ff;
+      color: #9ecdf2;
       font-size: 2.8rem;
       border-bottom: 2px solid #2f2f2f;
       padding-bottom: 0.3rem;
@@ -23,7 +23,7 @@
     }
 
     h2, h3 {
-      color: #91ffcb;
+      color: #9ecdf2;
       margin-top: 2rem;
     }
 
@@ -40,7 +40,7 @@
     blockquote {
       background: #1f1f1f;
       padding: 1rem;
-      border-left: 4px solid #91ffcb;
+      border-left: 4px solid #9ecdf2;
       margin: 1.5rem 0;
       font-style: italic;
       color: #d0d0d0;
@@ -52,7 +52,6 @@
       background: #121212;
       padding: 1.5rem;
       margin-top: 2.5rem;
-      transition: all 0.3s ease;
     }
 
     .day-section.collapsible .day-content {
@@ -62,9 +61,9 @@
     .toggle-button {
       background: none;
       border: none;
-      color: #91ffcb;
+      color: #9ecdf2;
       cursor: pointer;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-top: 0.5rem;
       display: flex;
       align-items: center;
@@ -75,7 +74,7 @@
       background: #1a1a1a;
       padding: 1rem;
       margin: 0.8rem 0;
-      border-left: 5px solid #7ec4ff;
+      border-left: 5px solid #9ecdf2;
       border-radius: 6px;
     }
 
@@ -102,7 +101,7 @@
       text-align: center;
       background: #161616;
       border-radius: 12px;
-      color: #999;
+      color: #aaa;
       font-style: italic;
     }
 
@@ -128,14 +127,19 @@
     function toggleDay(id) {
       const section = document.getElementById(id);
       const content = section.querySelector('.day-content');
-      content.style.display = content.style.display === 'none' ? 'block' : 'none';
+      content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
     }
+
+    window.onload = function () {
+      const allContents = document.querySelectorAll('.day-content');
+      allContents.forEach(el => el.style.display = 'block');
+    };
   </script>
 </head>
 <body>
 
   <h1>🧠 3 Days of Code, Chaos & Claude!</h1>
-  <p>What started as a sticky-note mess became a whispering AI with dreams of APL fluency.</p>
+  <p>From brainstorm boards to smart completions — here's our hackathon story 👇</p>
 
   <div class="team">
     <span>Ollie 🧠</span>
@@ -153,7 +157,7 @@
       <h3>🗣️ What We Did</h3>
       <ul>
         <li>Met at basecamp (aka video call)</li>
-        <li>Dumped 20 ideas onto a FigJam board</li>
+        <li>Dumped 20+ ideas onto a FigJam board</li>
         <li>Explored Claude, Langfuse, AWS Bedrock</li>
         <li>Argued about what “smart completion” means 😅</li>
       </ul>
@@ -169,8 +173,8 @@
     </div>
 
     <div class="dropzone">
-      📸 Drop your team whiteboard, FigJam or meme dump here!  
-      <br>(Screenshot it and place it here as an image)
+      📸 Drop your team whiteboard, FigJam, or memes here!<br>
+      (Upload a screenshot and place it here 👇)
     </div>
   </div>
 
