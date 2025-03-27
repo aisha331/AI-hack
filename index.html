@@ -110,7 +110,33 @@
       padding: 0.6rem;
       border-radius: 4px;
       margin-bottom: 1rem;
-      font-family: monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .rate-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .rate-circle {
+      width: 36px;
+      height: 36px;
+      background: #9ecdf2;
+      color: #121212;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .rate-name {
+      font-size: 0.8rem;
+      color: #aaa;
     }
 
     .dropzone {
@@ -226,8 +252,13 @@
       </div>
 
       <div class="feature-card">
-        <h3>🐣 Cute Rate</h3>
-        <div class="rate">Ollie: 3.5/5 | Gabriel: 3/5 | Mark: 4/5 | Aisha: 2.5/5</div>
+        <h3>🤖 Vibe Match Score</h3>
+        <div class="rate">
+          <div class="rate-item"><div class="rate-circle">3.5</div><div class="rate-name">Ollie</div></div>
+          <div class="rate-item"><div class="rate-circle">3</div><div class="rate-name">Gabriel</div></div>
+          <div class="rate-item"><div class="rate-circle">4</div><div class="rate-name">Mark</div></div>
+          <div class="rate-item"><div class="rate-circle">2.5</div><div class="rate-name">Aisha</div></div>
+        </div>
       </div>
 
       <h3>📸 Sneak Peek Screens</h3>
@@ -270,8 +301,13 @@
       </div>
 
       <div class="feature-card">
-        <h3>🐣 Cute Rate</h3>
-        <div class="rate">Ollie: 4/5 | Gabriel: 4.5/5 | Mark: 4/5 | Aisha: 4.5/5</div>
+        <h3>🤖 Vibe Match Score</h3>
+        <div class="rate">
+          <div class="rate-item"><div class="rate-circle">4</div><div class="rate-name">Ollie</div></div>
+          <div class="rate-item"><div class="rate-circle">4.5</div><div class="rate-name">Gabriel</div></div>
+          <div class="rate-item"><div class="rate-circle">4</div><div class="rate-name">Mark</div></div>
+          <div class="rate-item"><div class="rate-circle">4.5</div><div class="rate-name">Aisha</div></div>
+        </div>
       </div>
 
       <h3>🎥 Loom Video</h3>
@@ -308,8 +344,13 @@
       </div>
 
       <div class="feature-card">
-        <h3>🐣 Cute Rate</h3>
-        <div class="rate">Ollie: 5/5 | Gabriel: 5/5 | Mark: 5/5 | Aisha: 5/5</div>
+        <h3>🤖 Vibe Match Score</h3>
+        <div class="rate">
+          <div class="rate-item"><div class="rate-circle">5</div><div class="rate-name">Ollie</div></div>
+          <div class="rate-item"><div class="rate-circle">5</div><div class="rate-name">Gabriel</div></div>
+          <div class="rate-item"><div class="rate-circle">5</div><div class="rate-name">Mark</div></div>
+          <div class="rate-item"><div class="rate-circle">5</div><div class="rate-name">Aisha</div></div>
+        </div>
       </div>
 
       <h3>🎥 Final Demo</h3>
