@@ -968,9 +968,20 @@ iframe {
 /* Feature Cards */
 .features-title, .team-section-title {
   text-align: center;
-  margin: 3rem auto 1.5rem;
+  margin: 3rem auto 1rem;
   display: inline-block;
   width: 100%;
+}
+
+.features-title:after {
+  content: "Click cards to watch demos";
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #9ecdf2;
+  margin-top: 0.5rem;
+  letter-spacing: 1px;
+  text-shadow: none;
 }
 
 .feature-cards {
@@ -983,7 +994,7 @@ iframe {
 
 .feature-card-item {
   width: 200px;
-  height: 200px;
+  height: 230px;
   cursor: pointer;
   margin: 1rem;
   background-color: #1a1a1a;
@@ -996,12 +1007,41 @@ iframe {
   padding: 1rem;
   border: 2px solid #ffffff;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .feature-card-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(255,255,255,0.2);
   background-color: #252525;
+}
+
+.watch-video-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #9ecdf2;
+  color: #121212;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.feature-card-item:hover .watch-video-hint {
+  transform: translateY(0);
+}
+
+.play-button-icon {
+  font-size: 1rem;
+  margin-right: 2px;
 }
 
 /* Feature Video Modal */
@@ -1064,6 +1104,18 @@ iframe {
 .feature-emoji {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    transform: scale(1.1);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(158, 205, 242, 0.6);
+  }
 }
 
 .feature-name {
