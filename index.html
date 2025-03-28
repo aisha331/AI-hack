@@ -9,8 +9,12 @@
   <div class="confetti-container"></div>
   <div class="video-overlay"></div>
 
-  <h1>🧠 3 Days of Code, Chaos & Claude!</h1>
-  <p>From brainstorm boards to smart completions — here's our hackathon story 👇</p>
+  <div class="axiom-logo" id="axiom-logo">AXIOM</div>
+  
+  <div class="header-center">
+    <h1>🧠 3 Days of Code, Chaos & Claude!</h1>
+    <p class="header-subtitle">From brainstorm boards to smart completions — here's our hackathon story 👇</p>
+  </div>
 
   <div class="team-cards">
     <div class="team-card">
@@ -62,7 +66,24 @@
     </div>
   </div>
 
-  <div class="quote-banner">"Claude, complete me."</div>
+  <div class="quote-banner">"From Prompt to Product"</div>
+  
+  <div class="videos-intro">
+    <div class="videos-title">
+      <span class="sparkle-icon">✨</span>
+      <h3>Very Important Videos to Watch</h3>
+      <span class="sparkle-icon">✨</span>
+    </div>
+    <div class="ascii-arrows">
+      <div class="arrow-left">↙️</div>
+      <div class="arrow-right">↘️</div>
+    </div>
+  </div>
+  
+  <div class="buttons-section">
+    <button id="ai-journey-btn" class="video-btn">Our AI Journey</button>
+    <button id="customer-feedback-btn" class="video-btn">Customer Feedback</button>
+  </div>
   
   <div class="local-video-container">
     <video class="local-video" preload="metadata">
@@ -71,6 +92,15 @@
     </video>
     <div class="play-icon">▶️</div>
     <button class="close-video">✕</button>
+  </div>
+  
+  <div class="feedback-video-container">
+    <video class="feedback-video" preload="metadata">
+      <source src="media/feedback.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="play-icon">▶️</div>
+    <button class="close-feedback-video">✕</button>
   </div>
 
   <!-- 🌟 Day 0 – Discovery Mode -->
@@ -188,30 +218,41 @@
     <button class="toggle-button" onclick="toggleDay('day-2')">🧩 Show/Hide Day 2 Details</button>
     <div class="day-content">
       <p class="day-intro">
-        Today was all about diving deep into the weeds.<br>
-        We kicked things off by labeling over 200k APL queries to start training our own model.
+        Today our team split up to tackle different approaches after yesterday's experiments.
       </p>
       
-      <div class="feature-card">
-        <h3>🔮 It was part detective work, part wizardry:</h3>
-        <ul>
-          <li>We tried plugging Mintlify MCP into our Cmd+K flow</li>
-          <li>Initial vibes: hopeful</li>
-          <li>Reality: the autocomplete results were… kinda mid</li>
-        </ul>
+      <div class="team-update-card ollie">
+        <div class="team-update-avatar">
+          <img src="media/ollie.png" alt="Ollie">
+          <div class="team-name">Ollie</div>
+        </div>
+        <div class="team-update-content">
+          <p>"I spent the day diving into the CMD+K feature, trying to extend our existing autocomplete and quick fix infrastructure. Started by figuring out how to get the right data flowing into CMD+K, which sent me down the MCP rabbit hole. That turned out to be a dead end pretty quickly - Mintlify just doesn't expose the endpoints we'd need to make a chat feature work properly."</p>
+          
+          <p>"Next attempt was using llms.txt from our docs to feed in all the APL info. Worked okay, but it was pretty expensive and slow."</p>
+          
+          <p>"After both of those failed attempts I switched gears to focus on prompt engineering instead. Feed it a bunch of sample queries and fine-tuned instructions for different scenarios. The cool thing was that when combined with the LLM's built-in knowledge of KQL and our dataset structure, it actually performed way better than expected for APL work."</p>
+        </div>
       </div>
 
-      <div class="feature-card">
-        <h3>💬 There was a steady buzz of:</h3>
-        <ul>
-          <li>......</li>
-        </ul>
+      <div class="team-update-card gabriel">
+        <div class="team-update-avatar">
+          <img src="media/gabriel.png" alt="Gabriel">
+          <div class="team-name">Gabriel</div>
+        </div>
+        <div class="team-update-content">
+          <p>"I focused on reverse-engineering how Mintlify's MCP works under the hood. Spent hours in the Chrome DevTools trying to figure out their API structure and authentication flow. Found some interesting endpoints but kept hitting rate limits."</p>
+          
+          <p>"Eventually discovered their token-based system had some gaps we could potentially work with, but the documentation was pretty limited. Started building a small adapter to translate between their API format and what our CMD+K feature expects."</p>
+        </div>
       </div>
-
-      <div class="feature-card">
-        <h3>🏆 By the end of the day:</h3>
+      
+      <div class="feature-card results">
+        <h3>🏆 Key Takeaways:</h3>
         <ul>
-          <li>......</li>
+          <li>MCPs alone won't cut it for our specialized APL use case</li>
+          <li>Custom prompt engineering produces better results than expected</li>
+          <li>Maybe we need to build our own adapter between Claude and CMD+K</li>
         </ul>
       </div>
 
@@ -274,6 +315,41 @@
       <button class="confetti-button" onclick="createConfetti()">
         🎉 Celebrate Hackathon Progress! 🤖
       </button>
+    </div>
+  </div>
+
+  <!-- 😂 Fun Moments -->
+  <div class="day-section fun-moments" id="fun-moments">
+    <h2>🎭 Fun Moments & Behind the Scenes</h2>
+    <p class="fun-intro">Every great hackathon has its share of laughs, surprises, and those "did that just happen?" moments.</p>
+    
+    <div class="fun-gallery">
+      <div class="fun-image-container">
+        <img src="media/f1.png" alt="Fun moment 1">
+        <div class="fun-image-caption">When Claude got too creative...</div>
+      </div>
+      
+      <div class="fun-image-container">
+        <img src="media/f2.png" alt="Fun moment 2">
+        <div class="fun-image-caption">Late night debugging energy</div>
+      </div>
+      
+      <div class="fun-image-container">
+        <img src="media/f3.png" alt="Fun moment 3">
+        <div class="fun-image-caption">That moment when it finally worked!</div>
+      </div>
+      
+      <div class="fun-image-container">
+        <img src="media/f4.png" alt="Fun moment 4">
+        <div class="fun-image-caption">Brainstorming session madness</div>
+      </div>
+    </div>
+    
+    <div class="fun-quotes">
+      <div class="fun-quote">
+        <div class="quote-mark">❝</div>
+        <p>Wait, did Claude just write better APL than I do?</p>
+      </div>
     </div>
   </div>
 

@@ -44,7 +44,28 @@ function createConfetti() {
   }, 5000);
 }
 
+// Animated AXIOM logo
+function animateAxiomLogo() {
+  const logoContainer = document.getElementById('axiom-logo');
+  if (!logoContainer) return;
+  
+  // Replace text with animated spans
+  const text = logoContainer.textContent;
+  logoContainer.textContent = '';
+  
+  // Create a span for each letter with staggered delay
+  [...text].forEach((char, index) => {
+    const span = document.createElement('span');
+    span.textContent = char;
+    span.style.animationDelay = `${index * 0.1}s`;
+    logoContainer.appendChild(span);
+  });
+}
+
 window.onload = function () {
+  // Animate AXIOM logo
+  animateAxiomLogo();
+  
   const allContents = document.querySelectorAll('.day-content');
   allContents.forEach(el => el.style.display = 'block');
   
@@ -55,67 +76,154 @@ window.onload = function () {
   const closeBtn = document.querySelector('.close-video');
   const playIcon = document.querySelector('.play-icon');
   
-  if (videoContainer && video) {
-    // Mobile detection
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    
-    // Set initial state
-    video.controls = false;
-    
-    videoContainer.addEventListener('click', function(e) {
-      if (!videoContainer.classList.contains('expanded')) {
-        // Expand video
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        videoContainer.classList.add('expanded');
-        overlay.style.display = 'block';
-        closeBtn.style.display = 'block';
-        playIcon.style.display = 'none';
-        
-        // Enable controls when expanded
-        setTimeout(() => {
-          video.controls = true;
-          if (video.paused) {
-            video.play().catch(e => console.log('Autoplay prevented:', e));
-          }
-        }, 300); // Small delay for transition to complete
-      }
+  // Video related elements
+  const aiJourneyBtn = document.getElementById('ai-journey-btn');
+  const feedbackBtn = document.getElementById('customer-feedback-btn');
+  
+  const feedbackVideoContainer = document.querySelector('.feedback-video-container');
+  const feedbackVideo = document.querySelector('.feedback-video');
+  const closeFeedbackBtn = document.querySelector('.close-feedback-video');
+  const feedbackPlayIcon = feedbackVideoContainer.querySelector('.play-icon');
+  
+  // Mobile detection
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  // Hide video containers initially
+  videoContainer.style.display = 'none';
+  feedbackVideoContainer.style.display = 'none';
+  
+  // Set initial state for both videos
+  if (video) video.controls = false;
+  if (feedbackVideo) feedbackVideo.controls = false;
+  
+  // AI Journey button setup
+  if (aiJourneyBtn && videoContainer && video) {
+    aiJourneyBtn.addEventListener('click', function() {
+      // Show main video container first
+      videoContainer.style.display = 'block';
+      
+      // Then expand it after a short delay
+      setTimeout(() => {
+        expandVideo(videoContainer, video, closeBtn, playIcon);
+      }, 50);
     });
     
     // Close button functionality
     closeBtn.addEventListener('click', function(e) {
       e.stopPropagation();
-      closeExpandedVideo();
-    });
-    
-    // Close when clicking overlay
-    overlay.addEventListener('click', function() {
-      closeExpandedVideo();
-    });
-    
-    // Handle escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && videoContainer.classList.contains('expanded')) {
-        closeExpandedVideo();
-      }
-    });
-    
-    // Function to close expanded video
-    function closeExpandedVideo() {
-      document.body.style.overflow = ''; // Restore scrolling
-      videoContainer.classList.remove('expanded');
-      overlay.style.display = 'none';
-      closeBtn.style.display = 'none';
+      closeExpandedVideo(videoContainer, video, closeBtn, playIcon);
       
-      // Disable controls and restore play icon
-      video.controls = false;
+      // Hide video container after closing
       setTimeout(() => {
-        playIcon.style.display = 'block';
+        videoContainer.style.display = 'none';
       }, 300);
-      
-      // Pause video when closing
-      if (!video.paused) {
-        video.pause();
+    });
+    
+    // Make video container clickable to expand
+    videoContainer.addEventListener('click', function(e) {
+      if (!videoContainer.classList.contains('expanded')) {
+        expandVideo(videoContainer, video, closeBtn, playIcon);
       }
+    });
+  }
+  
+  // Customer feedback button setup
+  if (feedbackBtn && feedbackVideoContainer && feedbackVideo) {
+    feedbackBtn.addEventListener('click', function() {
+      // Show feedback video container first
+      feedbackVideoContainer.style.display = 'block';
+      
+      // Then expand it after a short delay
+      setTimeout(() => {
+        expandVideo(feedbackVideoContainer, feedbackVideo, closeFeedbackBtn, feedbackPlayIcon);
+      }, 50);
+    });
+    
+    // Close button functionality for feedback video
+    closeFeedbackBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeExpandedVideo(feedbackVideoContainer, feedbackVideo, closeFeedbackBtn, feedbackPlayIcon);
+      
+      // Hide feedback video container after closing
+      setTimeout(() => {
+        feedbackVideoContainer.style.display = 'none';
+      }, 300);
+    });
+    
+    // Make feedback video container clickable to expand
+    feedbackVideoContainer.addEventListener('click', function(e) {
+      if (!feedbackVideoContainer.classList.contains('expanded')) {
+        expandVideo(feedbackVideoContainer, feedbackVideo, closeFeedbackBtn, feedbackPlayIcon);
+      }
+    });
+  }
+  
+  // Close when clicking overlay
+  overlay.addEventListener('click', function() {
+    // Check which video is expanded and close it
+    if (videoContainer.classList.contains('expanded')) {
+      closeExpandedVideo(videoContainer, video, closeBtn, playIcon);
+      setTimeout(() => {
+        videoContainer.style.display = 'none';
+      }, 300);
+    } else if (feedbackVideoContainer.classList.contains('expanded')) {
+      closeExpandedVideo(feedbackVideoContainer, feedbackVideo, closeFeedbackBtn, feedbackPlayIcon);
+      setTimeout(() => {
+        feedbackVideoContainer.style.display = 'none';
+      }, 300);
+    }
+  });
+  
+  // Handle escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (videoContainer.classList.contains('expanded')) {
+        closeExpandedVideo(videoContainer, video, closeBtn, playIcon);
+        setTimeout(() => {
+          videoContainer.style.display = 'none';
+        }, 300);
+      } else if (feedbackVideoContainer.classList.contains('expanded')) {
+        closeExpandedVideo(feedbackVideoContainer, feedbackVideo, closeFeedbackBtn, feedbackPlayIcon);
+        setTimeout(() => {
+          feedbackVideoContainer.style.display = 'none';
+        }, 300);
+      }
+    }
+  });
+  
+  // Function to expand video
+  function expandVideo(container, videoElement, closeButton, playButton) {
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    container.classList.add('expanded');
+    overlay.style.display = 'block';
+    closeButton.style.display = 'block';
+    playButton.style.display = 'none';
+    
+    // Enable controls when expanded
+    setTimeout(() => {
+      videoElement.controls = true;
+      if (videoElement.paused) {
+        videoElement.play().catch(e => console.log('Autoplay prevented:', e));
+      }
+    }, 300); // Small delay for transition to complete
+  }
+  
+  // Function to close expanded video
+  function closeExpandedVideo(container, videoElement, closeButton, playButton) {
+    document.body.style.overflow = ''; // Restore scrolling
+    container.classList.remove('expanded');
+    overlay.style.display = 'none';
+    closeButton.style.display = 'none';
+    
+    // Disable controls and restore play icon
+    videoElement.controls = false;
+    setTimeout(() => {
+      playButton.style.display = 'block';
+    }, 300);
+    
+    // Pause video when closing
+    if (!videoElement.paused) {
+      videoElement.pause();
     }
   }
 };
