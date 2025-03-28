@@ -12,12 +12,12 @@ body {
 .axiom-logo {
   position: absolute;
   top: 15px;
-  right: 20px;
-  padding: 5px;
+  right: 25px;
+  padding: 8px;
   border: 2px solid #ffffff;
   border-radius: 5px;
   background: rgba(14, 14, 14, 0.7);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
   z-index: 10;
   display: flex;
   align-items: center;
@@ -25,8 +25,8 @@ body {
 }
 
 .axiom-img {
-  max-height: 30px;
-  max-width: 100px;
+  max-height: 45px;
+  max-width: 150px;
   display: block;
 }
 
@@ -103,6 +103,14 @@ body {
   border-radius: 10px;
   border: 1px solid #2a2a2a;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Special styling just for the d2.1 image */
+.img-d2-1 {
+  width: 32%;
+  object-fit: contain;
+  background-color: #1a1a1a;
+  padding: 5px;
 }
 
 h1 {
@@ -335,19 +343,23 @@ blockquote {
 }
 
 .video-btn {
-  background: linear-gradient(45deg, #9ecdf2, #6a8eae);
+  font-family: monospace;
+  font-weight: bold;
+  background: none;
   color: #fff;
-  border: none;
+  border: 2px solid #ffffff;
   padding: 1rem 2rem;
   font-size: 1.1rem;
-  border-radius: 30px;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 0 15px rgba(158, 205, 242, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
   white-space: nowrap;
   min-width: 200px;
   position: relative;
   overflow: hidden;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .video-btn::before {
@@ -365,7 +377,7 @@ blockquote {
 
 .video-btn:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2), 0 0 20px rgba(158, 205, 242, 0.7);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
 .video-btn:hover::before {
@@ -388,12 +400,13 @@ blockquote {
 }
 
 #customer-feedback-btn {
-  background: linear-gradient(45deg, #f29ead, #d59ef2);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 0 15px rgba(242, 158, 173, 0.5);
+  background: none;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 #customer-feedback-btn:hover {
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2), 0 0 20px rgba(242, 158, 173, 0.7);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
 /* Local Video Player */
