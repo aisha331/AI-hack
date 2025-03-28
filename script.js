@@ -1,16 +1,35 @@
-function toggleDay(id) {
-  const section = document.getElementById(id);
-  const content = section.querySelector('.day-content');
+// Function to toggle a specific day
+function openDay(id) {
+  const daySection = document.getElementById(id);
+  const isActive = daySection.classList.contains('active');
   
-  // Close all other day contents first
-  document.querySelectorAll('.day-content').forEach(el => {
-    if (el !== content && el.style.display === 'block') {
-      el.style.display = 'none';
-    }
+  // Close all day sections first
+  document.querySelectorAll('.day-section').forEach(section => {
+    section.classList.remove('active');
   });
   
-  // Toggle the clicked day content
-  content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
+  // Remove active class from all timeline days
+  document.querySelectorAll('.timeline-day').forEach(day => {
+    day.classList.remove('active');
+  });
+  
+  // If the section wasn't already active, open it
+  if (!isActive) {
+    // Open the clicked day
+    daySection.classList.add('active');
+    
+    // Add active class to the corresponding timeline day
+    const timelineDay = document.querySelector(`.timeline-day[data-day="${id}"]`);
+    if (timelineDay) {
+      timelineDay.classList.add('active');
+    }
+    
+    // Scroll to the day section
+    setTimeout(() => {
+      daySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+  // If it was active, we've already closed it by removing the active class above
 }
 
 function createConfetti() {
@@ -51,6 +70,50 @@ function createConfetti() {
   setTimeout(() => {
     confettiContainer.innerHTML = '';
   }, 5000);
+}
+
+// Function to open feature video in modal
+function openFeatureVideo(videoName) {
+  const modal = document.querySelector('.feature-video-modal');
+  const videoElement = document.getElementById('modal-video');
+  const videoSource = document.getElementById('modal-video-source');
+  const videoQuicktime = document.getElementById('modal-video-quicktime');
+  
+  // Set the video source
+  const videoPath = `media/${videoName}.mov`;
+  videoSource.src = videoPath;
+  videoQuicktime.src = videoPath;
+  
+  // Reset the video
+  videoElement.load();
+  
+  // Show the modal
+  modal.style.display = 'flex';
+  
+  // Attempt to play the video
+  videoElement.play().catch(e => console.log('Autoplay prevented:', e));
+  
+  // Prevent background scrolling
+  document.body.style.overflow = 'hidden';
+}
+
+// Function to open embedded Loom video
+function openEmbeddedVideo(videoId) {
+  const modal = document.getElementById(`${videoId}-modal`);
+  if (modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+// Function to open final demo video
+function openDemoVideo(event) {
+  event.preventDefault();
+  const modal = document.getElementById('final-demo-modal');
+  if (modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
 }
 
 // Animated AXIOM logo - now it's an image, so we'll animate the container
@@ -100,9 +163,79 @@ window.onload = function () {
   // Animate magical title
   animateMagicalTitle();
   
-  // Make all day content sections collapsed by default
-  const allContents = document.querySelectorAll('.day-content');
-  allContents.forEach(el => el.style.display = 'none');
+  // All days are closed by default - don't open any on load
+  
+  // Setup feature video modal close button
+  const closeFeatureBtn = document.querySelector('.close-feature-video');
+  const featureModal = document.querySelector('.feature-video-modal');
+  const modalVideo = document.getElementById('modal-video');
+  
+  if (closeFeatureBtn && featureModal) {
+    closeFeatureBtn.addEventListener('click', () => {
+      featureModal.style.display = 'none';
+      if (modalVideo && !modalVideo.paused) {
+        modalVideo.pause();
+      }
+      document.body.style.overflow = ''; // Restore scrolling
+    });
+    
+    // Also close when clicking outside the video
+    featureModal.addEventListener('click', (e) => {
+      if (e.target === featureModal) {
+        featureModal.style.display = 'none';
+        if (modalVideo && !modalVideo.paused) {
+          modalVideo.pause();
+        }
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    });
+  }
+  
+  // Setup Loom video modals close buttons
+  const loomModals = document.querySelectorAll('.loom-video-modal');
+  const loomCloseButtons = document.querySelectorAll('.close-loom-video');
+  
+  loomCloseButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.loom-video-modal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    });
+  });
+  
+  loomModals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    });
+  });
+  
+  // Handle escape key for all modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const activeFeatureModal = featureModal.style.display === 'flex' ? featureModal : null;
+      const activeLoomModal = [...loomModals].find(modal => modal.style.display === 'flex');
+      
+      if (activeFeatureModal) {
+        activeFeatureModal.style.display = 'none';
+        if (modalVideo && !modalVideo.paused) {
+          modalVideo.pause();
+        }
+      }
+      
+      if (activeLoomModal) {
+        activeLoomModal.style.display = 'none';
+      }
+      
+      if (activeFeatureModal || activeLoomModal) {
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    }
+  });
   
   // Video player setup
   const videoContainer = document.querySelector('.local-video-container');

@@ -14,59 +14,85 @@
   <div class="header-center">
     <h1 class="title-ascii" id="magical-title">3 Days of Code, Chaos & Claude!</h1>
     <p class="header-subtitle">From brainstorm boards to smart completions — here's our hackathon story 👇</p>
-    <a href="https://ai-hack-ruby.vercel.app/" class="preview-link" target="_blank">View Live Demo</a>
-  </div>
-
-  <div class="team-cards">
-    <div class="team-card">
-      <div class="team-card-inner">
-        <div class="team-card-front">
-          <div class="team-emoji">🧠</div>
-          <div class="team-name">Ollie</div>
-        </div>
-        <div class="team-card-back">
-          <img src="media/ollie.png" alt="Ollie">
-        </div>
-      </div>
-    </div>
-    
-    <div class="team-card">
-      <div class="team-card-inner">
-        <div class="team-card-front">
-          <div class="team-emoji">⚡</div>
-          <div class="team-name">Gabriel</div>
-        </div>
-        <div class="team-card-back">
-          <img src="media/gabriel.png" alt="Gabriel">
-        </div>
-      </div>
-    </div>
-    
-    <div class="team-card">
-      <div class="team-card-inner">
-        <div class="team-card-front">
-          <div class="team-emoji">🎯</div>
-          <div class="team-name">Mark</div>
-        </div>
-        <div class="team-card-back">
-          <img src="media/mark.png" alt="Mark">
-        </div>
-      </div>
-    </div>
-    
-    <div class="team-card">
-      <div class="team-card-inner">
-        <div class="team-card-front">
-          <div class="team-emoji">🔥</div>
-          <div class="team-name">Aisha</div>
-        </div>
-        <div class="team-card-back">
-          <img src="media/aisha.jpg" alt="Aisha">
-        </div>
-      </div>
+    <div class="header-buttons">
+      <a href="https://ai-hack-ruby.vercel.app/" class="preview-link" target="_blank">View Live Demo</a>
+      <a href="#" class="preview-link demo-link" onclick="openDemoVideo(event)">Final Demo</a>
     </div>
   </div>
-
+  
+  <!-- Theo Video -->
+  <div class="theo-main-container">
+    <video class="theo-main-video" controls>
+      <source src="media/Theo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
+  <h2 class="features-title title-ascii" id="things-we-built">Things We Built</h2>
+  
+  <div class="feature-cards">
+    <div class="feature-card-item" onclick="openFeatureVideo('autocom')">
+      <div class="feature-emoji">⚡</div>
+      <div class="feature-name">Autocomplete</div>
+    </div>
+    
+    <div class="feature-card-item" onclick="openFeatureVideo('autofix')">
+      <div class="feature-emoji">🔧</div>
+      <div class="feature-name">Fix with AI</div>
+    </div>
+    
+    <div class="feature-card-item" onclick="openEmbeddedVideo('cmd-k')">
+      <div class="feature-emoji">⌨️</div>
+      <div class="feature-name">CMD+K</div>
+    </div>
+    
+    <div class="feature-card-item" onclick="openEmbeddedVideo('in-app-docs')">
+      <div class="feature-emoji">📚</div>
+      <div class="feature-name">In-App Docs</div>
+    </div>
+    
+    <div class="feature-card-item" onclick="openFeatureVideo('aplgenerator')">
+      <div class="feature-emoji">🧪</div>
+      <div class="feature-name">APL Generator</div>
+    </div>
+  </div>
+  
+  <!-- Video Modal -->
+  <div class="feature-video-modal">
+    <div class="feature-video-container">
+      <video id="modal-video" controls playsinline>
+        <source id="modal-video-source" src="" type="video/mp4">
+        <source id="modal-video-quicktime" src="" type="video/quicktime">
+        Your browser does not support the video tag.
+      </video>
+      <button class="close-feature-video">✕</button>
+    </div>
+  </div>
+  
+  <!-- Embedded Loom Video Modal for CMD+K -->
+  <div class="loom-video-modal" id="cmd-k-modal">
+    <div class="loom-video-container">
+      <iframe src="https://www.loom.com/embed/02bdda4086da4bb0bb6e13108ba17553" frameborder="0" allowfullscreen></iframe>
+      <button class="close-loom-video">✕</button>
+    </div>
+  </div>
+  
+  <!-- Embedded Loom Video Modal for In-App Docs -->
+  <div class="loom-video-modal" id="in-app-docs-modal">
+    <div class="loom-video-container">
+      <iframe src="https://www.loom.com/embed/df6291adfb88447c824daa37c5fe19d9?sid=462b222a-413b-4694-9785-a23e607cc97c" frameborder="0" allowfullscreen></iframe>
+      <button class="close-loom-video">✕</button>
+    </div>
+  </div>
+  
+  <!-- Final Demo Video Modal -->
+  <div class="loom-video-modal" id="final-demo-modal">
+    <div class="loom-video-container">
+      <iframe src="https://www.loom.com/embed/2f44d592ccb04190840694ef01144309?sid=c1e43b11-7a4e-44c1-b4f5-eb157eca8fb0" frameborder="0" allowfullscreen></iframe>
+      <button class="close-loom-video">✕</button>
+    </div>
+  </div>
+  
   <div class="quote-banner">"From Prompt to Product"</div>
   
   <div class="videos-intro">
@@ -102,6 +128,38 @@
     </video>
     <div class="play-icon">▶️</div>
     <button class="close-feedback-video">✕</button>
+  </div>
+  
+  <!-- Days Timeline -->
+  <div class="days-timeline">
+    <h2 class="timeline-title">Our Hackathon Journey</h2>
+    <div class="timeline-container">
+      <div class="timeline-track"></div>
+      
+      <div class="timeline-day" data-day="day-0" onclick="openDay('day-0')">
+        <div class="timeline-dot"></div>
+        <div class="timeline-label">Day 0</div>
+        <div class="timeline-subtitle">Brainstorm</div>
+      </div>
+      
+      <div class="timeline-day" data-day="day-1" onclick="openDay('day-1')">
+        <div class="timeline-dot"></div>
+        <div class="timeline-label">Day 1</div>
+        <div class="timeline-subtitle">Divide & Conquer</div>
+      </div>
+      
+      <div class="timeline-day" data-day="day-2" onclick="openDay('day-2')">
+        <div class="timeline-dot"></div>
+        <div class="timeline-label">Day 2</div>
+        <div class="timeline-subtitle">Hacking</div>
+      </div>
+      
+      <div class="timeline-day" data-day="day-3" onclick="openDay('day-3')">
+        <div class="timeline-dot"></div>
+        <div class="timeline-label">Day 3</div>
+        <div class="timeline-subtitle">Demo Day</div>
+      </div>
+    </div>
   </div>
 
   <!-- 🌟 Day 0 – Discovery Mode -->
@@ -161,9 +219,8 @@
   </div>
 
   <!-- 🔥 Hackathon Day 1 -->
-  <div class="day-section collapsible" id="day-1">
+  <div class="day-section" id="day-1">
     <h2>📅 Day 1 — "Divide, Conquer, Prompt!"</h2>
-    <button class="toggle-button" onclick="toggleDay('day-1')"><img src="media/axiom logo.png" class="axiom-icon"> Show/Hide Day 1 Details</button>
     <div class="day-content">
       <p class="day-intro">
         We kicked off the real work today with sleeves rolled up and VS Code tabs flying. 🚀<br>
@@ -214,9 +271,8 @@
   </div>
 
   <!-- ⚡ Day 2 -->
-  <div class="day-section collapsible" id="day-2">
+  <div class="day-section" id="day-2">
     <h2>📅 Day 2 — "Reverse Engineering and Rate Limits 🔧🚫"</h2>
-    <button class="toggle-button" onclick="toggleDay('day-2')"><img src="media/axiom logo.png" class="axiom-icon"> Show/Hide Day 2 Details</button>
     <div class="day-content">
       <p class="day-intro">
       </p>
@@ -325,9 +381,8 @@
   </div>
 
   <!-- 🎯 Day 3 -->
-  <div class="day-section collapsible" id="day-3">
+  <div class="day-section" id="day-3">
     <h2>📅 Day 3 — "Demo Day & Dramatic Debugging"</h2>
-    <button class="toggle-button" onclick="toggleDay('day-3')"><img src="media/axiom logo.png" class="axiom-icon"> Show/Hide Day 3 Details</button>
     <div class="day-content">
 
       <h3>📸 Sneak Peek Screens</h3>
