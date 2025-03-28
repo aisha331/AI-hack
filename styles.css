@@ -342,6 +342,14 @@ blockquote {
   margin: 0.5rem 0 3rem;
 }
 
+.day3-buttons {
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
 .video-btn {
   font-family: monospace;
   font-weight: bold;
@@ -431,7 +439,8 @@ blockquote {
   object-fit: contain;
 }
 
-.local-video-container.expanded, .feedback-video-container.expanded {
+.local-video-container.expanded, .feedback-video-container.expanded,
+.coolest-video-container.expanded, .theo-video-container.expanded {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -449,7 +458,9 @@ blockquote {
 }
 
 .local-video-container.expanded .local-video,
-.feedback-video-container.expanded .feedback-video {
+.feedback-video-container.expanded .feedback-video,
+.coolest-video-container.expanded .coolest-video,
+.theo-video-container.expanded .theo-video {
   max-height: 85vh;
   width: 100%;
   height: auto;
@@ -476,6 +487,27 @@ blockquote {
   object-fit: contain;
 }
 
+/* Day 3 Demo Video Containers */
+.coolest-video-container, .theo-video-container {
+  display: none; /* Hide by default */
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #444;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  max-height: 500px;
+}
+
+.coolest-video, .theo-video {
+  width: 100%;
+  max-height: 500px;
+  display: block;
+  background: #121212;
+  object-fit: contain;
+}
+
 .video-overlay {
   display: none;
   position: fixed;
@@ -488,7 +520,7 @@ blockquote {
   backdrop-filter: blur(5px);
 }
 
-.close-video, .close-feedback-video {
+.close-video, .close-feedback-video, .close-coolest-video, .close-theo-video {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -506,7 +538,7 @@ blockquote {
   transition: all 0.2s ease;
 }
 
-.close-video:hover, .close-feedback-video:hover {
+.close-video:hover, .close-feedback-video:hover, .close-coolest-video:hover, .close-theo-video:hover {
   background: rgba(255,0,0,0.8);
   opacity: 1;
   transform: scale(1.1);

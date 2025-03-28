@@ -110,15 +110,31 @@ window.onload = function () {
   const closeFeedbackBtn = document.querySelector('.close-feedback-video');
   const feedbackPlayIcon = feedbackVideoContainer.querySelector('.play-icon');
   
+  // Day 3 demo videos
+  const coolestDemoBtn = document.getElementById('coolest-demo-btn');
+  const theoMicBtn = document.getElementById('theo-mic-btn');
+  
+  const coolestVideoContainer = document.querySelector('.coolest-video-container');
+  const coolestVideo = document.querySelector('.coolest-video');
+  const closeCoolestBtn = document.querySelector('.close-coolest-video');
+  const coolestPlayIcon = coolestVideoContainer ? coolestVideoContainer.querySelector('.play-icon') : null;
+  
+  const theoVideoContainer = document.querySelector('.theo-video-container');
+  const theoVideo = document.querySelector('.theo-video');
+  const closeTheoBtn = document.querySelector('.close-theo-video');
+  const theoPlayIcon = theoVideoContainer ? theoVideoContainer.querySelector('.play-icon') : null;
+  
   // Mobile detection
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
   // Video containers are hidden by default via CSS
   // No need to set display: none here since we've added it to the CSS
   
-  // Set initial state for both videos
+  // Set initial state for videos
   if (video) video.controls = false;
   if (feedbackVideo) feedbackVideo.controls = false;
+  if (coolestVideo) coolestVideo.controls = false;
+  if (theoVideo) theoVideo.controls = false;
   
   // AI Journey button setup
   if (aiJourneyBtn && videoContainer && video) {
@@ -174,6 +190,60 @@ window.onload = function () {
     });
   }
   
+  // Coolest Demo button setup
+  if (coolestDemoBtn && coolestVideoContainer && coolestVideo) {
+    coolestDemoBtn.addEventListener('click', function() {
+      // Show and expand video in one step
+      coolestVideoContainer.style.display = 'block';
+      expandVideo(coolestVideoContainer, coolestVideo, closeCoolestBtn, coolestPlayIcon);
+    });
+    
+    // Close button functionality
+    closeCoolestBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeExpandedVideo(coolestVideoContainer, coolestVideo, closeCoolestBtn, coolestPlayIcon);
+      
+      // Hide video container after closing
+      setTimeout(() => {
+        coolestVideoContainer.style.display = 'none';
+      }, 300);
+    });
+    
+    // Make video container clickable to expand
+    coolestVideoContainer.addEventListener('click', function(e) {
+      if (!coolestVideoContainer.classList.contains('expanded')) {
+        expandVideo(coolestVideoContainer, coolestVideo, closeCoolestBtn, coolestPlayIcon);
+      }
+    });
+  }
+  
+  // Theo Drops the Mic button setup
+  if (theoMicBtn && theoVideoContainer && theoVideo) {
+    theoMicBtn.addEventListener('click', function() {
+      // Show and expand video in one step
+      theoVideoContainer.style.display = 'block';
+      expandVideo(theoVideoContainer, theoVideo, closeTheoBtn, theoPlayIcon);
+    });
+    
+    // Close button functionality
+    closeTheoBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeExpandedVideo(theoVideoContainer, theoVideo, closeTheoBtn, theoPlayIcon);
+      
+      // Hide video container after closing
+      setTimeout(() => {
+        theoVideoContainer.style.display = 'none';
+      }, 300);
+    });
+    
+    // Make video container clickable to expand
+    theoVideoContainer.addEventListener('click', function(e) {
+      if (!theoVideoContainer.classList.contains('expanded')) {
+        expandVideo(theoVideoContainer, theoVideo, closeTheoBtn, theoPlayIcon);
+      }
+    });
+  }
+  
   // Close when clicking overlay
   overlay.addEventListener('click', function() {
     // Check which video is expanded and close it
@@ -186,6 +256,16 @@ window.onload = function () {
       closeExpandedVideo(feedbackVideoContainer, feedbackVideo, closeFeedbackBtn, feedbackPlayIcon);
       setTimeout(() => {
         feedbackVideoContainer.style.display = 'none';
+      }, 300);
+    } else if (coolestVideoContainer && coolestVideoContainer.classList.contains('expanded')) {
+      closeExpandedVideo(coolestVideoContainer, coolestVideo, closeCoolestBtn, coolestPlayIcon);
+      setTimeout(() => {
+        coolestVideoContainer.style.display = 'none';
+      }, 300);
+    } else if (theoVideoContainer && theoVideoContainer.classList.contains('expanded')) {
+      closeExpandedVideo(theoVideoContainer, theoVideo, closeTheoBtn, theoPlayIcon);
+      setTimeout(() => {
+        theoVideoContainer.style.display = 'none';
       }, 300);
     }
   });
@@ -202,6 +282,16 @@ window.onload = function () {
         closeExpandedVideo(feedbackVideoContainer, feedbackVideo, closeFeedbackBtn, feedbackPlayIcon);
         setTimeout(() => {
           feedbackVideoContainer.style.display = 'none';
+        }, 300);
+      } else if (coolestVideoContainer && coolestVideoContainer.classList.contains('expanded')) {
+        closeExpandedVideo(coolestVideoContainer, coolestVideo, closeCoolestBtn, coolestPlayIcon);
+        setTimeout(() => {
+          coolestVideoContainer.style.display = 'none';
+        }, 300);
+      } else if (theoVideoContainer && theoVideoContainer.classList.contains('expanded')) {
+        closeExpandedVideo(theoVideoContainer, theoVideo, closeTheoBtn, theoPlayIcon);
+        setTimeout(() => {
+          theoVideoContainer.style.display = 'none';
         }, 300);
       }
     }

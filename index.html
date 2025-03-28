@@ -327,12 +327,6 @@
     <h2>📅 Day 3 — "Demo Day & Dramatic Debugging"</h2>
     <button class="toggle-button" onclick="toggleDay('day-3')"><img src="media/axiom logo.png" class="axiom-icon"> Show/Hide Day 3 Details</button>
     <div class="day-content">
-      <div class="feature-card">
-        <h3>💡 Coming Soon</h3>
-        <ul>
-          <li>Still in progress...</li>
-        </ul>
-      </div>
 
       <h3>📸 Sneak Peek Screens</h3>
       <div class="image-row">
@@ -342,8 +336,27 @@
       </div>
 
       <h3>🎥 Final Demo</h3>
-      <div class="dropzone">
-        🚧 Demo video will appear here once Day 3 is complete! 🚧
+      <div class="buttons-section day3-buttons">
+        <button id="coolest-demo-btn" class="video-btn">Showtime: AI in Action</button>
+        <button id="theo-mic-btn" class="video-btn">Theo Drops the Mic</button>
+      </div>
+      
+      <div class="coolest-video-container" style="display: none;">
+        <video class="coolest-video" preload="metadata">
+          <source src="media/coolest-demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="play-icon">▶️</div>
+        <button class="close-coolest-video">✕</button>
+      </div>
+      
+      <div class="theo-video-container" style="display: none;">
+        <video class="theo-video" preload="metadata">
+          <source src="media/theo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="play-icon">▶️</div>
+        <button class="close-theo-video">✕</button>
       </div>
       
       <button class="confetti-button" onclick="createConfetti()">
