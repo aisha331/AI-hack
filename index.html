@@ -9,10 +9,10 @@
   <div class="confetti-container"></div>
   <div class="video-overlay"></div>
 
-  <div class="axiom-logo" id="axiom-logo">AXIOM</div>
+  <div class="axiom-logo" id="axiom-logo"><img src="media/axiom2 logo.png" alt="AXIOM" class="axiom-img"></div>
   
   <div class="header-center">
-    <h1>🧠 3 Days of Code, Chaos & Claude!</h1>
+    <h1 class="title-ascii" id="magical-title">3 Days of Code, Chaos & Claude!</h1>
     <p class="header-subtitle">From brainstorm boards to smart completions — here's our hackathon story 👇</p>
   </div>
 
@@ -161,7 +161,7 @@
   <!-- 🔥 Hackathon Day 1 -->
   <div class="day-section collapsible" id="day-1">
     <h2>📅 Day 1 — "Divide, Conquer, Prompt!"</h2>
-    <button class="toggle-button" onclick="toggleDay('day-1')">🧩 Show/Hide Day 1 Details</button>
+    <button class="toggle-button" onclick="toggleDay('day-1')"><img src="media/axiom logo.png" class="axiom-icon"> Show/Hide Day 1 Details</button>
     <div class="day-content">
       <p class="day-intro">
         We kicked off the real work today with sleeves rolled up and VS Code tabs flying. 🚀<br>
@@ -215,7 +215,7 @@
   <!-- ⚡ Day 2 -->
   <div class="day-section collapsible" id="day-2">
     <h2>📅 Day 2 — "Reverse Engineering and Rate Limits 🔧🚫"</h2>
-    <button class="toggle-button" onclick="toggleDay('day-2')">🧩 Show/Hide Day 2 Details</button>
+    <button class="toggle-button" onclick="toggleDay('day-2')"><img src="media/axiom logo.png" class="axiom-icon"> Show/Hide Day 2 Details</button>
     <div class="day-content">
       <p class="day-intro">
         Today our team split up to tackle different approaches after yesterday's experiments.
@@ -246,15 +246,37 @@
           <p>"Eventually discovered their token-based system had some gaps we could potentially work with, but the documentation was pretty limited. Started building a small adapter to translate between their API format and what our CMD+K feature expects."</p>
         </div>
       </div>
-      
-      <div class="feature-card results">
-        <h3>🏆 Key Takeaways:</h3>
-        <ul>
-          <li>MCPs alone won't cut it for our specialized APL use case</li>
-          <li>Custom prompt engineering produces better results than expected</li>
-          <li>Maybe we need to build our own adapter between Claude and CMD+K</li>
-        </ul>
+
+      <div class="team-update-card mark">
+        <div class="team-update-avatar">
+          <img src="media/mark.png" alt="Mark">
+          <div class="team-name">Mark</div>
+        </div>
+        <div class="team-update-content">
+          <p><strong>Implementation and Infrastructure Setup</strong></p>
+          
+          <p>"On the second day, I implemented the training pipeline locally and worked with Conor on setting up infrastructure on the dev environment to host and run the model. I chose phi-4-instructed for training, which can be "instructed" to follow specific prompts or tasks effectively, which I believe makes it better to solve contextual problems such as understanding what exactly "APL" is and is not."</p>
+          
+          <p>"Initially, I hit a roadblock when my M4 Mac couldn't handle the RAM demands, even with a small sample. To overcome this, I shifted training to AWS, with tons of GPU and vCPU resources. I also developed a UI and Python code to support iterative training, incorporating human feedback to refine the model's suggestion quality, through UI."</p>
+        </div>
       </div>
+      
+      <div class="team-update-card aisha">
+        <div class="team-update-avatar">
+          <img src="media/aisha.jpg" alt="Aisha">
+          <div class="team-name">Aisha</div>
+        </div>
+        <div class="team-update-content">
+          <p><strong>LLM Integration and Testing</strong></p>
+          
+          <p>"Claude was successfully hosted on AWS to address privacy considerations. Spent the day extensively testing various prompts and tuning parameters to optimize LLM output accuracy."</p>
+          
+          <p>"Gained a deeper understanding of how MCP clients operate and experimented with MCP servers via CLI to evaluate potential integration with Axiom."</p>
+          
+          <p>"Additionally, explored multiple approaches to fine-tuning models, which I plan to investigate further over the weekend."</p>
+        </div>
+      </div>
+      
 
 
       <h3>🎥 Progress Videos</h3>
@@ -298,7 +320,7 @@
   <!-- 🎯 Day 3 -->
   <div class="day-section collapsible" id="day-3">
     <h2>📅 Day 3 — "Demo Day & Dramatic Debugging"</h2>
-    <button class="toggle-button" onclick="toggleDay('day-3')">🧩 Show/Hide Day 3 Details</button>
+    <button class="toggle-button" onclick="toggleDay('day-3')"><img src="media/axiom logo.png" class="axiom-icon"> Show/Hide Day 3 Details</button>
     <div class="day-content">
       <div class="feature-card">
         <h3>💡 Coming Soon</h3>

@@ -44,27 +44,52 @@ function createConfetti() {
   }, 5000);
 }
 
-// Animated AXIOM logo
+// Animated AXIOM logo - now it's an image, so we'll animate the container
 function animateAxiomLogo() {
   const logoContainer = document.getElementById('axiom-logo');
   if (!logoContainer) return;
   
+  // Now that it's an image, we'll just add a subtle fade-in animation to the container
+  logoContainer.style.opacity = '0';
+  logoContainer.style.transition = 'opacity 0.8s ease';
+  
+  setTimeout(() => {
+    logoContainer.style.opacity = '1';
+  }, 300);
+}
+
+function animateMagicalTitle() {
+  const titleContainer = document.getElementById('magical-title');
+  if (!titleContainer) return;
+  
   // Replace text with animated spans
-  const text = logoContainer.textContent;
-  logoContainer.textContent = '';
+  const text = titleContainer.textContent;
+  titleContainer.textContent = '';
   
   // Create a span for each letter with staggered delay
   [...text].forEach((char, index) => {
     const span = document.createElement('span');
     span.textContent = char;
-    span.style.animationDelay = `${index * 0.1}s`;
-    logoContainer.appendChild(span);
+    span.style.animationDelay = `${index * 0.05}s`;
+    titleContainer.appendChild(span);
+  });
+  
+  // Add additional magical effects
+  titleContainer.addEventListener('mouseover', function() {
+    titleContainer.style.textShadow = '0 0 15px rgba(255, 255, 255, 1), 0 0 25px rgba(255, 255, 255, 0.8)';
+  });
+  
+  titleContainer.addEventListener('mouseout', function() {
+    titleContainer.style.textShadow = '0 0 10px rgba(255, 255, 255, 0.8)';
   });
 }
 
 window.onload = function () {
   // Animate AXIOM logo
   animateAxiomLogo();
+  
+  // Animate magical title
+  animateMagicalTitle();
   
   const allContents = document.querySelectorAll('.day-content');
   allContents.forEach(el => el.style.display = 'block');
@@ -88,9 +113,8 @@ window.onload = function () {
   // Mobile detection
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
-  // Hide video containers initially
-  videoContainer.style.display = 'none';
-  feedbackVideoContainer.style.display = 'none';
+  // Video containers are hidden by default via CSS
+  // No need to set display: none here since we've added it to the CSS
   
   // Set initial state for both videos
   if (video) video.controls = false;
@@ -99,13 +123,9 @@ window.onload = function () {
   // AI Journey button setup
   if (aiJourneyBtn && videoContainer && video) {
     aiJourneyBtn.addEventListener('click', function() {
-      // Show main video container first
+      // Show and expand video in one step
       videoContainer.style.display = 'block';
-      
-      // Then expand it after a short delay
-      setTimeout(() => {
-        expandVideo(videoContainer, video, closeBtn, playIcon);
-      }, 50);
+      expandVideo(videoContainer, video, closeBtn, playIcon);
     });
     
     // Close button functionality
@@ -130,13 +150,9 @@ window.onload = function () {
   // Customer feedback button setup
   if (feedbackBtn && feedbackVideoContainer && feedbackVideo) {
     feedbackBtn.addEventListener('click', function() {
-      // Show feedback video container first
+      // Show and expand feedback video in one step
       feedbackVideoContainer.style.display = 'block';
-      
-      // Then expand it after a short delay
-      setTimeout(() => {
-        expandVideo(feedbackVideoContainer, feedbackVideo, closeFeedbackBtn, feedbackPlayIcon);
-      }, 50);
+      expandVideo(feedbackVideoContainer, feedbackVideo, closeFeedbackBtn, feedbackPlayIcon);
     });
     
     // Close button functionality for feedback video
