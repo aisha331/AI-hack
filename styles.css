@@ -43,6 +43,28 @@ body {
   margin-top: 0.5rem;
 }
 
+.preview-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.5rem;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.preview-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 25px rgba(255, 255, 255, 0.5);
+  background: #252525;
+}
+
 .axiom-logo span {
   display: inline-block;
   opacity: 0;
