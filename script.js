@@ -1,6 +1,15 @@
 function toggleDay(id) {
   const section = document.getElementById(id);
   const content = section.querySelector('.day-content');
+  
+  // Close all other day contents first
+  document.querySelectorAll('.day-content').forEach(el => {
+    if (el !== content && el.style.display === 'block') {
+      el.style.display = 'none';
+    }
+  });
+  
+  // Toggle the clicked day content
   content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
 }
 
@@ -91,8 +100,9 @@ window.onload = function () {
   // Animate magical title
   animateMagicalTitle();
   
+  // Make all day content sections collapsed by default
   const allContents = document.querySelectorAll('.day-content');
-  allContents.forEach(el => el.style.display = 'block');
+  allContents.forEach(el => el.style.display = 'none');
   
   // Video player setup
   const videoContainer = document.querySelector('.local-video-container');
